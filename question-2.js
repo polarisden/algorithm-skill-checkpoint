@@ -1,5 +1,18 @@
 function findProductPrice(products, name) {
-  // Your code here
+  let left = 0
+  let right = products.length - 1
+  while (left <= right) {
+    let mid = Math.floor((right+left)/2)
+    if (products[mid].name < name) {
+      left = mid + 1
+    } else if (products[mid].name > name) {
+      right = mid -1
+    } else {
+      return products[mid].price
+    }
+  }
+
+  return -1
 }
 
 // Test case
